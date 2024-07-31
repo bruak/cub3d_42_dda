@@ -2,6 +2,7 @@
 	"files.associations": {
 		"mlx_struct.h": "c",
 		"__node_handle": "c",
-		"player.h": "c"
+		"player.h": "c",
+		"config.h": "c"
 	}
 }

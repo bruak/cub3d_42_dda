@@ -6,7 +6,7 @@
 /*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 16:55:17 by bsoykan           #+#    #+#             */
-/*   Updated: 2024/07/31 21:52:13 by hamza            ###   ########.fr       */
+/*   Updated: 2024/07/31 22:25:32 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ int	render_map(t_player	player)
 	while (x < SCREEN_WIDTH)
 	{
 		calc_ray_direction(player, &ray, x);
-		ray.gridcoord
-			= (t_coord){(int)player.position.x, (int)player.position.y};
+		ray.gridcoord = (t_coord){(int)player.position.x, (int)player.position.y};
 		ray.delta_dist.x = fabs(1 / ray.ray_dir.x);
 		ray.delta_dist.y = fabs(1 / ray.ray_dir.y);
 		calc_ray_step_side_dist(player, &ray);

@@ -13,6 +13,7 @@
 #include <math.h>
 #include "../includes/player.h"
 #include "../includes/config.h"
+#include "../includes/math_extensions.h"
 
 /*
 ** This function calculates the ray direction

@@ -5,7 +5,7 @@ LFLAGS		=	-Lget_next_line -Llibft -Lminilibx -lft -lmlx -framework OpenGL -frame
 SOURCES		=	main.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \
 				control/controllers.c parser/map.c render/dda.c render/render.c render/draw.c render/image.c parser/load_map_content.c \
 				parser/load_map.c parser/load_map_dimentions.c parser/load_metadata_rgb_duplicate_check.c \
-				parser/load_metadata.c parser/check_surrounded_by_wall.c memory-allocator/aborter.c memory-allocator/allocator.c \
+				parser/load_metadata.c render/textures.c parser/check_surrounded_by_wall.c memory-allocator/aborter.c memory-allocator/allocator.c \
 				exit/graceful_exit.c
 OBJ			=	$(SOURCES:%.c=%.o)
 
