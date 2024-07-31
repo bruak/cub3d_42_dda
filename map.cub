@@ -1,10 +1,10 @@
-NO textures/hcoskun.xpm
-SO textures/wanted_bsoykan.xpm
-WE textures/wanted_hcoskun.xpm
-EA textures/bsoykan.xpm
+NO textures/bsoykan.xpm
+SO textures/hcoskun.xpm
+WE textures/bsoykan.xpm
+EA textures/hcoskun.xpm
                 
-F 220,100,0
-C 225,30,0
+F 255,204,255 
+C 153,204,255
 
         1111111111111111111111111
         1000000000110000000000001

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoykan <bsoykan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 16:55:17 by bsoykan           #+#    #+#             */
-/*   Updated: 2024/07/21 12:25:38 by bsoykan          ###   ########.fr       */
+/*   Updated: 2024/07/31 21:52:13 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
  * if ray is ended due to limit (instead of hitting a wall)
  * do not render any wall. so ray->line_height is set to 0
  */
+#include <stdio.h>
 void	calculate_line_textures(
 	t_player player, t_texture_data textures, t_raycast *ray)
 {

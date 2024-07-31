@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoykan <bsoykan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 12:40:48 by hamza             #+#    #+#             */
-/*   Updated: 2024/07/21 12:59:22 by bsoykan          ###   ########.fr       */
+/*   Updated: 2024/07/31 22:10:27 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,10 @@ double	fract(double x)
 	return (fabs(x - floor(x)));
 }
 
-void	calc_texture(t_player player, t_raycast *ray)
-{
-	double	wall_x;
-
-	if (ray->on_horizontal_line)
-		wall_x = fract(player.position.x + ray->wall_dist * ray->ray_dir.x);
-	else
-		wall_x = fract(player.position.y + ray->wall_dist * ray->ray_dir.y);
-	ray->texture.x = (int)(wall_x * (double)ray->current_texture.width);
-	if ((!ray->on_horizontal_line && ray->ray_dir.x < 0)
-		|| (ray->on_horizontal_line && ray->ray_dir.y > 0))
-		ray->texture.x = ray->current_texture.width - ray->texture.x - 1;
-	ray->step = (double) ray->current_texture.height / ray->line_height;
-	if (SCREEN_HEIGHT > ray->line_height)
-		ray->texture.pos = 0;
-	else
-		ray->texture.pos = (ray->line_height - SCREEN_HEIGHT) * ray->step / 2;
-}
 
 static int	get_texture_color(t_texture_data textures, t_raycast *ray)
 {
 	t_image	texture;
-	int		color;
 
 	if (ray->on_horizontal_line && ray->ray_dir.y < 0)
 		texture = textures.north;
@@ -53,10 +34,8 @@ static int	get_texture_color(t_texture_data textures, t_raycast *ray)
 		texture = textures.west;
 	else if (!ray->on_horizontal_line && ray->ray_dir.x >= 0)
 		texture = textures.east;
-	color = get_pixel(&texture, ray->texture.x, ray->texture.y);
-	return (color);
+	return (get_pixel(&texture, ray->texture.x, ray->texture.y));
 }
-
 void	draw_line(t_image *img, t_texture_data textures, int x, t_raycast *ray)
 {
 	int		y;
@@ -76,8 +55,8 @@ void	draw_line(t_image *img, t_texture_data textures, int x, t_raycast *ray)
 		else
 		{
 			ray->texture.y = (int)ray->texture.pos;
-			color = get_texture_color(textures, ray);
 			ray->texture.pos += ray->step;
+			color = get_texture_color(textures, ray);
 			set_pixel(img, x, y, color);
 		}
 		y++;

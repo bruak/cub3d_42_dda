@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoykan <bsoykan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 13:39:08 by hcoskun           #+#    #+#             */
-/*   Updated: 2024/07/21 13:06:41 by bsoykan          ###   ########.fr       */
+/*   Updated: 2024/07/31 22:06:00 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ int	main(int ac, char **av)
 	t_pressed_keys	pressed_keys;
 	t_player		player;
 
+	if (MOVEMENT_SPEED > 1 || ROTATION_SPEED > 1)
+		return (error_exit("MOVEMENT_SPEED and ROTATION_SPEED must be less than 1"), 1);
 	if (ac != 2)
 		return (error_exit(USAGE_MSG), 1);
 	map = load_map(&mlx, av[1]);

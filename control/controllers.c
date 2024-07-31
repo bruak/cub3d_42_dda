@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controllers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoykan <bsoykan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 11:08:55 by bsoykan           #+#    #+#             */
-/*   Updated: 2024/07/21 12:43:28 by bsoykan          ###   ########.fr       */
+/*   Updated: 2024/07/31 21:59:46 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ double	move_x(t_player *player, double delta)
 	t_map_element	element;
 
 	new_x = player->position.x + delta * MOVEMENT_SPEED;
-	target = (t_coord){(int)new_x, (int)player->position.y};
+	target = (t_coord){(int)(new_x + copysign(COLLISION_TOLERANCE, delta)), (int)player->position.y};
 	element = get_map_element(player->map, target);
 	if (element != WALL)
 		return (new_x);
@@ -37,7 +37,7 @@ double	move_y(t_player *player, double delta)
 	t_map_element	element;
 
 	new_y = player->position.y + delta * MOVEMENT_SPEED;
-	target = (t_coord){(int)player->position.x, (int) new_y};
+	target = (t_coord){(int)player->position.x, (int) (new_y + copysign(COLLISION_TOLERANCE, delta))};
 	element = get_map_element(player->map, target);
 	if (element != WALL)
 		return (new_y);

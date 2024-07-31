@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoykan <bsoykan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 10:37:45 by bsoykan           #+#    #+#             */
-/*   Updated: 2024/07/21 11:21:05 by bsoykan          ###   ########.fr       */
+/*   Updated: 2024/07/31 22:09:40 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,5 @@ typedef struct s_raycast
 	t_texture	texture;
 	t_texture	current_texture;
 }			t_raycast;
-
-double	fract(double x);
 
 #endif

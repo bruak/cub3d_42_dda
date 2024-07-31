@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"mlx_struct.h": "c",
+		"__node_handle": "c",
+		"player.h": "c"
+	}
+}
